@@ -1,4 +1,8 @@
 body {
     text-align: center;
     margin-top: 100px;
+}.dark
+ {
+    background-color: black;
+    color: white;
 }
