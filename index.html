@@ -1,37 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Advanced Calculator</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Calculator</h1>
+<div class="calculator">
 
-    <p>This is a simple calculator.</p>
+  <h2>🧮 Calculator Pro</h2>
 
-    <button onclick="toggleTheme()">🌙 Dark Mode</button>
+  <input id="display" type="text" readonly />
 
-    <br><br>
+  <div class="buttons">
 
-    <input type="number" id="num1">
-    <input type="number" id="num2">
+    <button onclick="append('7')">7</button>
+    <button onclick="append('8')">8</button>
+    <button onclick="append('9')">9</button>
+    <button onclick="append('/')">÷</button>
 
-    <br><br>
+    <button onclick="append('4')">4</button>
+    <button onclick="append('5')">5</button>
+    <button onclick="append('6')">6</button>
+    <button onclick="append('*')">×</button>
 
-    <button onclick="add()">Add</button>
-    <button onclick="subtract()">Subtract</button>
-    <button onclick="multiply()">Multiply</button>
-    <button onclick="divide()">Divide</button>
-    <button onclick="percentage()">%</button>
-    <button onclick="square()">x²</button>
-    <button onclick="clearData()">Clear</button>
+    <button onclick="append('1')">1</button>
+    <button onclick="append('2')">2</button>
+    <button onclick="append('3')">3</button>
+    <button onclick="append('-')">−</button>
 
-    <h2 id="result"></h2>
-    <h3>History</h3>
-<ul id="history"></ul>
- <script src="script.js"></script>
+    <button onclick="append('0')">0</button>
+    <button onclick="append('.')">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="append('+')">+</button>
 
+    <!-- Scientific -->
+    <button onclick="scientific('sin')">sin</button>
+    <button onclick="scientific('cos')">cos</button>
+    <button onclick="scientific('log')">log</button>
+    <button onclick="clearDisplay()">C</button>
 
+  </div>
+
+  <h3>History</h3>
+  <ul id="history"></ul>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

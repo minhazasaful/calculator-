@@ -1,8 +1,50 @@
 body {
-    text-align: center;
-    margin-top: 100px;
-}.dark
- {
-    background-color: black;
-    color: white;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+  background: linear-gradient(135deg,#1f1c2c,#928dab);
+}
+
+.calculator {
+  width: 90%;
+  max-width: 350px;
+  padding: 20px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+
+  color: white;
+  text-align: center;
+}
+
+#display {
+  width: 100%;
+  padding: 15px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.2);
 }

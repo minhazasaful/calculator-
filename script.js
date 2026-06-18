@@ -1,51 +1,53 @@
- function add() {
-    let num1 = Number(document.getElementById("num1").value);
-    let num2 = Number(document.getElementById("num2").value);
+let display = document.getElementById("display");
+let historyList = document.getElementById("history");
 
-    let sum = num1 + num2;
+let history = JSON.parse(localStorage.getItem("history")) || [];
+renderHistory();
 
-    document.getElementById("result").innerText = "Result: " + sum;
+function append(value) {
+  display.value += value;
 }
 
-function toggleTheme() {
-    document.body.classList.toggle("dark");
+function calculate() {
+  try {
+    let result = eval(display.value);
+    saveHistory(display.value + " = " + result);
+    display.value = result;
+  } catch {
+    display.value = "Error";
+  }
 }
 
-function subtract() {
-    let num1 = Number(document.getElementById("num1").value);
-    let num2 = Number(document.getElementById("num2").value);
-
-    document.getElementById("result").innerText =
-        "Result: " + (num1 - num2);
+function clearDisplay() {
+  display.value = "";
 }
-function multiply() {
-    let num1 = Number(document.getElementById("num1").value);
-    let num2 = Number(document.getElementById("num2").value);
 
-    document.getElementById("result").innerText =
-        "Result: " + (num1 * num2);
-}
-function divide() {
-    let num1 = Number(document.getElementById("num1").value);
-    let num2 = Number(document.getElementById("num2").value);
+function scientific(type) {
+  let value = parseFloat(display.value);
 
-    document.getElementById("result").innerText =
-        "Result: " + (num1 / num2);
-}
-function clearData() {
-    document.getElementById("num1").value = "";
-    document.getElementById("num2").value = "";
-    document.getElementById("result").innerText = "";
-}
-function percentage() {
-    let num1 = Number(document.getElementById("num1").value);
+  if (isNaN(value)) return;
 
-    document.getElementById("result").innerText =
-        "Result: " + (num1 / 100);
-}
-function square() {
-    let num1 = Number(document.getElementById("num1").value);
+  let result;
 
-    document.getElementById("result").innerText =
-        "Result: " + (num1 * num1);
+  if (type === "sin") result = Math.sin(value);
+  if (type === "cos") result = Math.cos(value);
+  if (type === "log") result = Math.log10(value);
+
+  saveHistory(`${type}(${value}) = ${result}`);
+  display.value = result;
+}
+
+function saveHistory(item) {
+  history.push(item);
+  localStorage.setItem("history", JSON.stringify(history));
+  renderHistory();
+}
+
+function renderHistory() {
+  historyList.innerHTML = "";
+  history.forEach(h => {
+    let li = document.createElement("li");
+    li.textContent = h;
+    historyList.appendChild(li);
+  });
 }
