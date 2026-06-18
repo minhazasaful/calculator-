@@ -32,3 +32,8 @@ function divide() {
     document.getElementById("result").innerText =
         "Result: " + (num1 / num2);
 }
+function clearData() {
+    document.getElementById("num1").value = "";
+    document.getElementById("num2").value = "";
+    document.getElementById("result").innerText = "";
+}
