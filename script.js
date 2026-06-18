@@ -43,3 +43,9 @@ function percentage() {
     document.getElementById("result").innerText =
         "Result: " + (num1 / 100);
 }
+function square() {
+    let num1 = Number(document.getElementById("num1").value);
+
+    document.getElementById("result").innerText =
+        "Result: " + (num1 * num1);
+}
