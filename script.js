@@ -37,3 +37,9 @@ function clearData() {
     document.getElementById("num2").value = "";
     document.getElementById("result").innerText = "";
 }
+function percentage() {
+    let num1 = Number(document.getElementById("num1").value);
+
+    document.getElementById("result").innerText =
+        "Result: " + (num1 / 100);
+}
