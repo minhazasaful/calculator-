@@ -65,3 +65,17 @@ function showMemory() {
     document.getElementById("result").innerText =
         "Memory: " + memory;
 }
+  
+
+function saveMemory() {
+    memory = Number(display.value);
+}
+
+function showMemory() {
+    display.value = memory;
+}
+function clearHistory() {
+    history = [];
+    localStorage.removeItem("history");
+    renderHistory();
+}
