@@ -4,6 +4,8 @@ let historyList = document.getElementById("history");
 let history = JSON.parse(localStorage.getItem("history")) || [];
 renderHistory();
 
+let memory = 0;
+
 function append(value) {
   display.value += value;
 }
@@ -50,4 +52,16 @@ function renderHistory() {
     li.textContent = h;
     historyList.appendChild(li);
   });
+}
+function saveMemory() {
+    let resultText = document.getElementById("result").innerText;
+
+    if (resultText !== "") {
+        memory = Number(resultText.replace("Result: ", ""));
+    }
+}
+
+function showMemory() {
+    document.getElementById("result").innerText =
+        "Memory: " + memory;
 }
